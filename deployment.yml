@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: CloudNative Python
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+    app: cloud-python
+ template:
+   metadata:
+     labels:
+       app: cloud-python
+   spec:
+     containers:
+       - name: "cloud-python-native"
+         image: "your-image-id"
+         ports:
+           - containerPort: 8080
+         resources:
+          limits:
+            cpu: 1
+            memory: 512Mi
+          requests:
+            cpu: 0.5
+            memory: 256Mi
+
